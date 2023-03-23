@@ -3,6 +3,7 @@ import { getGitRepositories, getGitUsers } from '../../fetchers/gitFetchers';
 import { GitRepo, GitUser } from '../../typeDefs/gitTypes';
 import UserCard from './UserCard';
 import "./home.css";
+import Loader from '../../components/Loader';
 
 const Home = () => {
     const [searchText,setSearchText] = useState<string>("");
@@ -36,12 +37,12 @@ const Home = () => {
                     <input  onChange={onChangeSearchHandler} type="search" name="" value={searchText} placeholder='Enter username' />
                     <button onClick={()=>handleUserSearch(searchText)}>Search</button>
                 </div>
-                {searchedText && !!users.length && <p>Showing users for "{searchedText}"</p>}
+                {searchedText && !!users.length && <p className='search-status'>Showing users for "{searchedText}"</p>}
 
                 <div>
                     {
                         isUsersLoading 
-                        ? <h1>Loading..................</h1>
+                        ? <div className='loader'><Loader /></div>
                         : users.length === 0 && searchedText
                         ? <p className='text-center'>No user found</p>
                         : <div className='users'>
