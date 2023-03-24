@@ -2,8 +2,8 @@
 
 This is a simple React application that allows users to search for GitHub users by their username and also view the information of their repositories. The app is built using TypeScript for type checking and a functional component approach.
 
-## Live URL:
-Visit this url to check the activities of this app: [Member Searcher Live](https://example.com) 
+## [Live URL](https://repo-finder-1.netlify.app/):
+Visit this url to check the activities of this app: [click here](https://repo-finder-1.netlify.app/) 
 <br/>
 <br/>
 ## Getting Started:

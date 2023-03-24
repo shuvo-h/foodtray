@@ -15,7 +15,7 @@ export const getGitUsers = async(username:string,per_page:number=5):Promise<gitU
     try {
         const response = await fetch(`https://api.github.com/search/users?q=${username}&per_page=${per_page}`);
         const data = await response.json();
-        return {data:data.items,errorMsg:null}
+        return  data.message ? {data:[],errorMsg:data.message} : {data:data.items,errorMsg:null}
     } catch (error:any) {
         console.log(error);
         return {data:[],errorMsg:error.message}

@@ -49,8 +49,8 @@ const UserCard = ({user}:UserCardPropType) => {
                     : userRepositories.map((repository:GitRepo) => <RepositoryCard repository={repository} key={repository.id} />)
                 }
             </div>
-            {isExpand && !isRepositoryLoading && !userRepositories.length && !repositoryErr && <p className='text-center'><i>No repository created</i></p>}
-            {repositoryErr && <p>{repositoryErr}</p>}
+            {isExpand && !isRepositoryLoading && !userRepositories?.length && !repositoryErr && <p className='text-center'><i>No repository created</i></p>}
+            {repositoryErr && <p className='error' style={{wordWrap:"break-word"}}>{repositoryErr}</p>}
         </div>
     );
 };

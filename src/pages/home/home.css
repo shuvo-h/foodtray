@@ -6,6 +6,9 @@
     font-family: 'Poppins', sans-serif;
     margin: auto;
 }
+.container-box{
+    max-width: 410px;
+}
 .head-title{
     text-decoration: underline;
     text-align: center;

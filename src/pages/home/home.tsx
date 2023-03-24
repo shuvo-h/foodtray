@@ -35,23 +35,23 @@ const Home = () => {
 
     return (
         <div className='container'>
-            <div className=''>
+            <div className='container-box'>
                 <h2 className='head-title'>Git  Users and Repositories</h2>
                 <div className='search'>
                     <input  onChange={onChangeSearchHandler} onKeyDown={onSearchKeyDown} type="search" name="" data-testid='search-input' value={searchText} placeholder='Enter username' />
-                    <button onClick={()=>handleUserSearch(searchText)} data-testid='search-btn'>Search</button>
+                    {!isUsersLoading && <button onClick={()=>handleUserSearch(searchText)} data-testid='search-btn'>Search</button>}
                 </div>
-                {searchedText && !!users.length && <p className='search-status'>Showing users for "{searchedText}"</p>}
+                {searchedText && !isUsersLoading && !!users?.length && <p className='search-status'>Showing users for "{searchedText}"</p>}
 
                 <div>
                     {
                         isUsersLoading 
                         ? <div className='loader' data-testid='loader-user'><Loader /></div>
-                        : users.length === 0 && searchedText
+                        : users?.length === 0 && searchedText && !usersErr
                         ? <p className='text-center'>No user found</p>
                         : <div className='users' data-testid='users-test'>
                             {
-                                users.map((user:GitUser)=><UserCard user={user}  key={user.id} />)
+                                users?.map((user:GitUser)=><UserCard user={user}  key={user.id} />)
                             }
                         </div>
                     }
