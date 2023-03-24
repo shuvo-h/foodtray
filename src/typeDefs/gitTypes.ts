@@ -128,5 +128,4 @@ export type GitRepo = {
     watchers: number
     watchers_count: number
     web_commit_signoff_required: boolean
-
 }

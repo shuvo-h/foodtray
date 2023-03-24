@@ -8,8 +8,6 @@ type RepositoryCardProp = {
 }
 
 const RepositoryCard = ({repository}:RepositoryCardProp) => {
-    console.log(repository);
-    
     return (
         <div className='repo-card'>
             <div className='repo-heading'>

@@ -30,7 +30,7 @@ const UserCard = ({user}:UserCardPropType) => {
         setRepositoryErr(result.errorMsg);
         setIsRepositoryLoading(false);     
     }
-    console.log(userRepositories);
+    
 
     return (
         <div className='user-card' onClick={()=>{handleRepositories(user.login);setIsExpand(!isExpand)}} data-testid='user-card'>
@@ -45,7 +45,7 @@ const UserCard = ({user}:UserCardPropType) => {
             <div className={`repos ${isExpand ? "" :"repos-hide"}`}>
                 {
                     isRepositoryLoading
-                    ? <div className='loader'><Loader /></div>
+                    ? <div className='loader' data-testid='repo-loader'><Loader /></div>
                     : userRepositories.map((repository:GitRepo) => <RepositoryCard repository={repository} key={repository.id} />)
                 }
             </div>

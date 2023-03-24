@@ -28,8 +28,6 @@ export const getGitRepositories = async(username:string):Promise<gitRepositories
     try {
         const response = await fetch(`https://api.github.com/users/${username}/repos`);
         const data = await response.json();
-        console.log(data);
-        
         return data.message ? {data:[],errorMsg:data.message} : {data:data,errorMsg:null}
     } catch (error:any) {
         console.log(error);
