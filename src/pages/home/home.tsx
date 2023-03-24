@@ -35,7 +35,7 @@ const Home = () => {
 
     return (
         <div className='container'>
-            <div className='container-box'>
+            <div>
                 <h2 className='head-title'>Git  Users and Repositories</h2>
                 <div className='search'>
                     <input  onChange={onChangeSearchHandler} onKeyDown={onSearchKeyDown} type="search" name="" data-testid='search-input' value={searchText} placeholder='Enter username' />

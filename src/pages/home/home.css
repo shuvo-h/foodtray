@@ -1,14 +1,12 @@
 .container{
-    width: fit-content;
+    max-width: 668px;
     padding: 50px 15px;
     min-height: calc(100vh - 2*50px);
     background-color: var(--bg-secondary);
     font-family: 'Poppins', sans-serif;
     margin: auto;
 }
-.container-box{
-    max-width: 410px;
-}
+
 .head-title{
     text-decoration: underline;
     text-align: center;
@@ -52,12 +50,6 @@
     text-align: center;
 }
 
-.users{
-  
-}
-.user-card{
-    max-width: 410px;
-}
 
 .username{
     padding: 5px 10px;
