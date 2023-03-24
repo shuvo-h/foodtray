@@ -19,7 +19,7 @@ After successfully installing, use the below command to start the application.
 This will run the application at http://localhost:3000
 
 To run the test case, use the command on your terminal.
-### nom run test
+### `npm run test`
 
 <br/>
 <br/>
