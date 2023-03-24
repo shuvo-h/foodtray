@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { getGitRepositories, getGitUsers } from '../../fetchers/gitFetchers';
-import { GitRepo, GitUser } from '../../typeDefs/gitTypes';
+import { getGitUsers } from '../../fetchers/gitFetchers';
+import { GitUser } from '../../typeDefs/gitTypes';
 import UserCard from './UserCard';
 import "./home.css";
 import Loader from '../../components/Loader';
@@ -27,25 +27,29 @@ const Home = () => {
         setIsUsersLoading(false);     
     }
 
-   
+   const onSearchKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) =>{
+        if (e.keyCode === 13) {
+            handleUserSearch(searchText);
+        }
+   }
 
     return (
         <div className='container'>
             <div className=''>
                 <h2 className='head-title'>Git  Users and Repositories</h2>
                 <div className='search'>
-                    <input  onChange={onChangeSearchHandler} type="search" name="" value={searchText} placeholder='Enter username' />
-                    <button onClick={()=>handleUserSearch(searchText)}>Search</button>
+                    <input  onChange={onChangeSearchHandler} onKeyDown={onSearchKeyDown} type="search" name="" data-testid='search-input' value={searchText} placeholder='Enter username' />
+                    <button onClick={()=>handleUserSearch(searchText)} data-testid='search-btn'>Search</button>
                 </div>
                 {searchedText && !!users.length && <p className='search-status'>Showing users for "{searchedText}"</p>}
 
                 <div>
                     {
                         isUsersLoading 
-                        ? <div className='loader'><Loader /></div>
+                        ? <div className='loader' data-testid='loader-user'><Loader /></div>
                         : users.length === 0 && searchedText
                         ? <p className='text-center'>No user found</p>
-                        : <div className='users'>
+                        : <div className='users' data-testid='users-test'>
                             {
                                 users.map((user:GitUser)=><UserCard user={user}  key={user.id} />)
                             }

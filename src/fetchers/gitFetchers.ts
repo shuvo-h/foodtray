@@ -30,7 +30,7 @@ export const getGitRepositories = async(username:string):Promise<gitRepositories
         const data = await response.json();
         console.log(data);
         
-        return {data:data,errorMsg:null}
+        return data.message ? {data:[],errorMsg:data.message} : {data:data,errorMsg:null}
     } catch (error:any) {
         console.log(error);
         return {data:[],errorMsg:error.message}

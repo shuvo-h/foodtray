@@ -114,5 +114,6 @@
 .repo-card p {
     margin: 0;
     font-weight: 500;
+    word-wrap: break-word;
 }
 

@@ -78,6 +78,84 @@ const userSearchUrl = 'https://api.github.com/users/{userName}'
   
   export default GitHubSearch;
 
+  /*
+  import React from 'react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
+import Home from './Home';
+import { getGitUsers } from './api';
+
+jest.mock('./api', () => ({
+  getGitUsers: jest.fn(),
+}));
+
+describe('Home', () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('should render search input and button', () => {
+    render(<Home />);
+    const searchInput = screen.getByPlaceholderText('Enter username');
+    const searchButton = screen.getByRole('button', { name: /search/i });
+    expect(searchInput).toBeInTheDocument();
+    expect(searchButton).toBeInTheDocument();
+  });
+
+  it('should update search text when typing into the input', () => {
+    render(<Home />);
+    const searchInput = screen.getByPlaceholderText('Enter username');
+    fireEvent.change(searchInput, { target: { value: 'testuser' } });
+    expect(searchInput).toHaveValue('testuser');
+  });
+
+  it('should call getGitUsers with the search text when clicking the search button', async () => {
+    const testUser = { id: 1, login: 'testuser', avatar_url: 'http://example.com/avatar' };
+    const mockGetGitUsers = getGitUsers as jest.MockedFunction<typeof getGitUsers>;
+    mockGetGitUsers.mockResolvedValue({ data: [testUser], errorMsg: null });
+    render(<Home />);
+    const searchInput = screen.getByPlaceholderText('Enter username');
+    const searchButton = screen.getByRole('button', { name: /search/i });
+    fireEvent.change(searchInput, { target: { value: 'testuser' } });
+    fireEvent.click(searchButton);
+    expect(mockGetGitUsers).toHaveBeenCalledWith('testuser');
+    await waitFor(() => {
+      const userCards = screen.getAllByTestId('user-card');
+      expect(userCards.length).toBe(1);
+      expect(screen.getByText(/Showing users for "testuser"/i)).toBeInTheDocument();
+    });
+  });
+
+  it('should display an error message if getGitUsers returns an error', async () => {
+    const errorMsg = 'Something went wrong';
+    const mockGetGitUsers = getGitUsers as jest.MockedFunction<typeof getGitUsers>;
+    mockGetGitUsers.mockResolvedValue({ data: [], errorMsg });
+    render(<Home />);
+    const searchInput = screen.getByPlaceholderText('Enter username');
+    const searchButton = screen.getByRole('button', { name: /search/i });
+    fireEvent.change(searchInput, { target: { value: 'testuser' } });
+    fireEvent.click(searchButton);
+    await waitFor(() => {
+      expect(screen.getByText(errorMsg)).toBeInTheDocument();
+    });
+  });
+
+  it('should display a message if no users are found', async () => {
+    const mockGetGitUsers = getGitUsers as jest.MockedFunction<typeof getGitUsers>;
+    mockGetGitUsers.mockResolvedValue({ data: [], errorMsg: null });
+    render(<Home />);
+    const searchInput = screen.getByPlaceholderText('Enter username');
+    const searchButton = screen.getByRole('button', { name: /search/i });
+    fireEvent.change(searchInput, { target: { value: 'nonexistentuser' } });
+    fireEvent.click(searchButton);
+    await waitFor(() => {
+      expect(screen.getByText(/No user found/i)).toBeInTheDocument();
+    });
+  });
+});
+
+
+
+  */
 
 
 

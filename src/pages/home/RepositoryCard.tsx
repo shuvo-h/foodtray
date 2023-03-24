@@ -7,7 +7,7 @@ type RepositoryCardProp = {
     repository: GitRepo
 }
 
-const RepositoryCard:React.FC<RepositoryCardProp> = ({repository}) => {
+const RepositoryCard = ({repository}:RepositoryCardProp) => {
     console.log(repository);
     
     return (

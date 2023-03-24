@@ -11,7 +11,7 @@ type UserCardPropType = {
     
 }
 
-const UserCard:React.FC<UserCardPropType> = ({user}) => {
+const UserCard = ({user}:UserCardPropType) => {
 
     const [userRepositories,setUserRepositories] = useState<GitRepo[]>([]);
     const [repositoryErr,setRepositoryErr] = useState<string|null>(null);
@@ -33,7 +33,7 @@ const UserCard:React.FC<UserCardPropType> = ({user}) => {
     console.log(userRepositories);
 
     return (
-        <div className='user-card' onClick={()=>{handleRepositories(user.login);setIsExpand(!isExpand)}}>
+        <div className='user-card' onClick={()=>{handleRepositories(user.login);setIsExpand(!isExpand)}} data-testid='user-card'>
             <div className={`username ${isExpand ? "rotate" : ""}`}>
                 <h4>{user.login}</h4>
                 <span className='icon-wrapper'>
@@ -49,7 +49,7 @@ const UserCard:React.FC<UserCardPropType> = ({user}) => {
                     : userRepositories.map((repository:GitRepo) => <RepositoryCard repository={repository} key={repository.id} />)
                 }
             </div>
-            {isExpand && !isRepositoryLoading && !userRepositories.length && <p className='text-center'><i>No repository created</i></p>}
+            {isExpand && !isRepositoryLoading && !userRepositories.length && !repositoryErr && <p className='text-center'><i>No repository created</i></p>}
             {repositoryErr && <p>{repositoryErr}</p>}
         </div>
     );
