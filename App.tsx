@@ -24,36 +24,11 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import RootNavigator from './src/navigation/RootNavigator';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -62,6 +37,8 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  return <RootNavigator />
+  /*
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -76,12 +53,17 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text style={{fontSize:40,marginTop:60}}>Food Tray</Text>
+          <Text style={{
+            fontSize:40,
+            marginTop:60,
+            fontFamily:"Poppins-SemiBold"
+            }}>Food Tray 5</Text>
           
         </View>
       </ScrollView>
     </SafeAreaView>
   );
+  */
 }
 
 const styles = StyleSheet.create({
