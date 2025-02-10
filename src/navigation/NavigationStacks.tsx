@@ -5,6 +5,7 @@ import Home from '../screens/home/Home';
 import Header from '../components/shared/Header';
 import ThemeProvider from '../theme/ThemeProvider';
 import { NavigationContainer } from '@react-navigation/native';
+import { TabNavigatorSetting } from './tabs/TabNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,10 @@ export default function NavigationStacks() {
                                 headerShown: true,
                                 header:()=><Header title='Home Page' />
                             }}
+                        />
+                        <Stack.Screen 
+                            name='Setting'
+                            component={TabNavigatorSetting}
                         />
                     </Stack.Navigator>
                 {/* </NavigationContainer> */}

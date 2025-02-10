@@ -1,0 +1,11 @@
+***Restaurant & Food cooking Learn***
+- user can share their food receipe
+- can like, comment and share 
+- can call (audio + video) by WEBRTC to the post owner
+- login / register  (without cookies)
+- location track(think where can we implement location tracking),
+- deep link for profile 
+- live streaming to teach food cooking with your new receipe  
+- realtime notification system using socket
+
+

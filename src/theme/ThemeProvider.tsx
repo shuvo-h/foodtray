@@ -45,3 +45,28 @@ export const ThemeSwitcher = () =>{
         <Text>Switch THeme Icon</Text>
     </Pressable>
 }
+
+
+
+
+
+
+
+
+// Add the constraint to ensure T is an object type
+type ThemedStyle<T extends Record<string, any>> = {
+  [K in keyof T]: T[K] | (T[K] & { [key: string]: any }) & T[K];
+};
+
+export function createThemedStyles<T extends Record<string, any>>(styles: T): ThemedStyle<T> {
+  const { isDark } = useTheme();
+
+  return Object.keys(styles).reduce((acc, key) => {
+    const styleKey = key as keyof T;
+    acc[styleKey] = {
+      ...styles[styleKey], 
+      ...(isDark ? styles[`${String(key)}_dark`] : null), 
+    };
+    return acc;
+  }, {} as ThemedStyle<T>);
+}
