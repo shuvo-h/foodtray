@@ -9,3 +9,43 @@
 - realtime notification system using socket
 
 
+Backend
+- use NestJS for API development and Admin operation
+- use gps tracking if possible
+
+
+
+Screens:
+    AuthStack:
+        - Login
+        - Register
+    Posts:
+        - create 
+        - edit 
+        - show All posts 
+        - Notifications
+    ChatMessageRoom:
+        - list of all chat messages 
+        - singe chat message screen 
+        - total joined groups 
+        - gruop message screen 
+    GroupVideoCall:
+        - One to one Video/Audio call
+        - group video/audio call 
+    LiveStreaming:
+        - live stream on my profile 
+
+
+Bottom Navivation group:
+    Posts/Home Screen 
+        - Notifications
+        - ChatMessageRoom
+        - more 
+    ChatMessageRoom 
+        - Group Video call 
+        - live streaming 
+        - Home
+        - More
+    Settings
+        - profile setting 
+        - account setting
